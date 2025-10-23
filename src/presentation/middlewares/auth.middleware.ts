@@ -28,7 +28,7 @@ export class AuthMiddleware {
         select: [
           'uid', 'username', 'email', 'phone', 'password', 'is_active',
           'is_online', 'is_disabled', 'is_google', 'created_at',
-          'updated_at', 'picture'
+          'updated_at', 'picture', 'role'
         ]
       });
 

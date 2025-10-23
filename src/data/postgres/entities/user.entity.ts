@@ -9,6 +9,9 @@ export class User {
     @Column({ type: 'varchar' })
     name: string;
 
+    @Column({ type: 'varchar', default: 'user' })
+    role: string;
+
     @Column({ type: 'varchar', unique: true })
     username: string;
 

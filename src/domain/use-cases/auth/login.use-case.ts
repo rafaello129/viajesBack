@@ -10,6 +10,7 @@ interface UserAccessToken {
     uid: string;
     username: string;
     is_online: boolean;
+    role: string;
     picture?: string;
     profile?: any;
   };
@@ -28,7 +29,6 @@ export class LoginUser implements LoginUserUseCase {
 
   async execute(loginUserDto: LoginDto): Promise<UserAccessToken> {
     const user = await this.authRepository.login(loginUserDto);
-
     const accessToken = await this.signToken({ 
       uid: user.uid, 
     });
@@ -42,6 +42,7 @@ export class LoginUser implements LoginUserUseCase {
       user: { 
         uid: user.uid,
         username: user.username,
+        role: user.role,
         is_online: user.is_online,
         picture: user.picture,
       }

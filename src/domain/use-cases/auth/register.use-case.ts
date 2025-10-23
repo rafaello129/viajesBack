@@ -11,6 +11,7 @@ interface UserAccessToken {
     username: string;
     is_online: boolean;
     picture?: string;
+    role: string;
     profile?: any;
   };
 }
@@ -40,6 +41,7 @@ export class RegisterUser implements RegisterUserUseCase {
       accessToken,
       user: {
         uid: user.uid,
+        role: user.role,
         username: user.username,
         is_online: user.is_online,
         picture: user.picture,

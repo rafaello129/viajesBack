@@ -66,6 +66,7 @@ export class AuthDatasourceImpl implements AuthDatasource {
                 created_at: true,
                 updated_at: true,
                 picture: true,
+                role: true,
             }
         });
     }
@@ -79,7 +80,7 @@ export class AuthDatasourceImpl implements AuthDatasource {
     }
 
     async register(registerUserDto: RegisterDto): Promise<UserEntity> {
-        const { name, username, password } = registerUserDto;
+        const { name, username, password, role } = registerUserDto;
         const queryRunner = PostgresDatabase.dataSource.createQueryRunner();
 
         await queryRunner.connect();
@@ -103,6 +104,7 @@ export class AuthDatasourceImpl implements AuthDatasource {
             const user = queryRunner.manager.create(User, {
                 name,
                 username,
+                 role,
                 email: username,
                 password: this.hashPassword(password),
             });

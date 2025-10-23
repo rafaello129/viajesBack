@@ -15,6 +15,7 @@ export class UserEntity {
         public is_google: boolean,
         public created_at: Date,
         public updated_at: Date,
+        public role: string,
     ) {}
 
 }

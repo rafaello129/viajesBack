@@ -19,6 +19,7 @@ export class UserMapper {
             is_google,
             created_at,
             updated_at,
+            role,
         } = obj;
 
         if (!uid) throw CustomError.badRequest(`'uid' is missing`);
@@ -39,6 +40,8 @@ export class UserMapper {
             is_google,
             created_at,
             updated_at,
+            role,
+
         );
     }
 }

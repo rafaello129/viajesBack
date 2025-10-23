@@ -8,6 +8,7 @@ interface User {
   picture?: string;
   profile?: any;
   profileId?: string;
+  role: string;
 }
 
 interface UserAccessToken {
@@ -37,6 +38,7 @@ export class Renew implements RenewUseCase {
       accessToken,
       user: { 
         uid: user.uid,
+        role: user.role,
         username: user.username,
         is_online: user.is_online,
         picture: user.picture,
